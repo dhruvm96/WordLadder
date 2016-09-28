@@ -29,7 +29,7 @@ public class Main {
 		if (args.length != 0) {
 			kb = new Scanner(new File(args[0]));
 			ps = new PrintStream(new File(args[1]));
-			System.setOut(ps);			// redirect output to ps
+			System.setOut(ps);			// red irect output to ps
 		} else {
 			kb = new Scanner(System.in);// default from Stdin
 			ps = System.out;			// default to Stdout
@@ -71,6 +71,7 @@ public class Main {
 		// Return empty list if no ladder.
 		// TODO some code
 		Set<String> dict = makeDictionary();
+		ArrayList<String>ans = 
 		// TODO more code
 		
 		return null; // replace this line later with real return
@@ -80,6 +81,7 @@ public class Main {
 		
 		// TODO some code
 		Set<String> dict = makeDictionary();
+		
 		// TODO more code
 		
 		ArrayList<String> deleteme = new ArrayList<String>();
