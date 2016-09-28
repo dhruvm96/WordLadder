@@ -8,7 +8,7 @@
  * <dkm989>
  * <16455>
  * Slip days used: <0>
- * Git URL: TODO fill url
+ * Git URL: https://github.com/dhruvm96/WordLadder
  * Fall 2016
  */
 
@@ -103,12 +103,12 @@ public class Main {
 	}
 	
 	public static void printLadder(ArrayList<String> ladder) {
+		//TODO Implement this fully!
 		System.out.println("");
 		for(int i = 0; i < ladder.size(); i++){
 			System.out.println(ladder.get(i));
 		}
 		
 	}
-	// TODO
-	// Other private static methods here
+	// TODO Other private static methods here
 }
