@@ -40,13 +40,16 @@ public class Main {
 		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
 		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		if(ladder.isEmpty()){
-			ladder.add("ActuallyEmpty");
+			ladder.add("ActuallyEmpty"); // Allows printLadder to identify a truly empty word ladder
 			ladder.add(input.get(1));
 			ladder.add(input.get(0));
 		}
 		printLadder(ladder);
 	}
 	
+	/**
+	 * initialize() is an unused function.
+	 */
 	public static void initialize() {
 		// Unused
 	}
@@ -69,14 +72,18 @@ public class Main {
 		return input;
 	}
 	
+	/**
+	 * Wrapper function that makes the dictionary and calls ComputeDFS.
+	 * @param start is the word which is to be found. 
+	 * @param end is the last word which would terminate the word ladder.
+	 * @return Flipped ArrayList consisting of the words found using depth search.
+	 */
 	public static ArrayList<String> getWordLadderDFS(String start, String end) {
 		// Returned list should be ordered start to end.  Include start and end.
 		// Return empty list if no ladder.
 		Set<String> dict = makeDictionary();
 		ArrayList<String>ans = DFS.ComputeDFS(start, end, dict);
-		if(ans.isEmpty()){
-			System.out.println("No word ladder can be found between "+start+" and "+end );
-		}
+		if(ans.isEmpty()){}
 		else {
 			ans.add(start);
 			return ans;
@@ -84,11 +91,21 @@ public class Main {
 		return ans;
 	}
 	
+	/**
+	 * Wrapper function that makes the dictionary and calls runBFS.
+	 * @param start is the starting word in the ladder.
+	 * @param end is the ending word in the ladder.
+	 * @return the flipped word ladder.
+	 */
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
 		Set<String> dict = makeDictionary();
 		return BFS.runBFS(start, end, dict);
 	}
     
+    /**
+     * (PROVIDED FUNCTION) Parses the dictionary file into a set
+     * @return the dictionary as a set.
+     */
 	public static Set<String>  makeDictionary () {
 		Set<String> words = new HashSet<String>();
 		Scanner infile = null;
@@ -105,6 +122,10 @@ public class Main {
 		return words;
 	}
 	
+	/**
+	 * Flips the word ladder and prints it
+	 * @param ladder is the flipped word ladder from either ComputeDFS or runBFS
+	 */
 	public static void printLadder(ArrayList<String> ladder) {
 		if(ladder.get(0) == "ActuallyEmpty"){
 			System.out.println("no word ladder can be found between "+(ladder.get(ladder.size()-1).toLowerCase())+" and "+(ladder.get(1).toLowerCase())+".");

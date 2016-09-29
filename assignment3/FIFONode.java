@@ -1,9 +1,9 @@
 package assignment3;
 import java.util.*;
-public class FIFONode {
-	public String word;
-	public ArrayList<Integer> index = new ArrayList<Integer>();
-	public ArrayList<Character> value = new ArrayList<Character>();
+public class FIFONode { // Payload for FIFO
+	public String word;  // The word contained in the FIFONode
+	public ArrayList<Integer> index = new ArrayList<Integer>();     // Keeps track of all the changes (indexes)
+	public ArrayList<Character> value = new ArrayList<Character>(); // Keeps track of all the changes (values)
 	
 	public FIFONode(String word){ // For the first FIFONode
 		this.word = word;
