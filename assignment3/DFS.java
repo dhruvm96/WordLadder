@@ -7,7 +7,7 @@ public class DFS {
 	private static ArrayList <String> oneletteroff(String word, Set<String> Input){
 
 		char [] wordarray = word.toCharArray();
-		char[]copyarray = Arrays.copyOf(wordarray,word.length());
+		char[]copyarray = Arrays.copyOf(wordarray, word.length());
 
 	
 		ArrayList <String>a1 = new ArrayList<String>();

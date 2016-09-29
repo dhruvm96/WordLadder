@@ -37,8 +37,8 @@ public class Main {
 		initialize(); // Unused
 		ArrayList<String> input = parse(kb);
 		if(input.isEmpty()){System.exit(0);}
-		ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
-		//ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
+		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
+		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
 	}
 	
@@ -101,10 +101,13 @@ public class Main {
 	}
 	
 	public static void printLadder(ArrayList<String> ladder) {
-		//TODO Implement this fully!
-		System.out.println("");
+		if(ladder.size() == 0){
+			//System.out.println("no word ladder can be found between "+(ladder.get(ladder.size()-1).toLowerCase())+" and "+(ladder.get(0).toLowerCase())+".");
+			return;
+		}
+		System.out.println("a "+(ladder.size()-2)+"-rung word ladder exists between "+(ladder.get(ladder.size()-1).toLowerCase())+" and "+(ladder.get(0).toLowerCase())+".");
 		for(int i = ladder.size()-1; i >= 0; i--){
-			System.out.println(ladder.get(i));
+			System.out.println(ladder.get(i).toLowerCase());
 		}
 		
 	}
