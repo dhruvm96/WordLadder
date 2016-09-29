@@ -8,7 +8,7 @@
  * <dkm989>
  * <16455>
  * Slip days used: <0>
- * Git URL: TODO fill url
+ * Git URL: https://github.com/dhruvm96/WordLadder
  * Fall 2016
  */
 
@@ -20,6 +20,7 @@ import java.io.*;
 public class Main {
 	
 	// static variables and constants only here.
+
 	
 	public static void main(String[] args) throws Exception {
 		
@@ -29,22 +30,26 @@ public class Main {
 		if (args.length != 0) {
 			kb = new Scanner(new File(args[0]));
 			ps = new PrintStream(new File(args[1]));
-			System.setOut(ps);			// red irect output to ps
+			System.setOut(ps);			// redirect output to ps
 		} else {
 			kb = new Scanner(System.in);// default from Stdin
 			ps = System.out;			// default to Stdout
 		}
-		initialize();
+		initialize(); // Unused
 		ArrayList<String> input = parse(kb);
+		if(input.isEmpty()){System.exit(0);}
 		ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
 		//ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
+		if(ladder.isEmpty()){
+			ladder.add("ActuallyEmpty");
+			ladder.add(input.get(1));
+			ladder.add(input.get(0));
+		}
 		printLadder(ladder);
 	}
 	
 	public static void initialize() {
-		// initialize your static variables or constants here.
-		// We will call this method before running our JUNIT tests.  So call it 
-		// only once at the start of main.
+		// Unused
 	}
 	
 	/**
@@ -56,9 +61,8 @@ public class Main {
 		String word_one = keyboard.next();
 		String word_two = keyboard.next();
 		if(word_one.equals("/quit") || word_two.equals("/quit")){
-			//ArrayList<String> emptyArrayList = new ArrayList<String>();
-			//return emptyArrayList;
-			System.exit(0);
+			ArrayList<String> emptyArrayList = new ArrayList<String>();
+			return emptyArrayList;
 		}
 		ArrayList<String> input = new ArrayList<String>();
 		input.add(word_one.toUpperCase());
@@ -67,33 +71,21 @@ public class Main {
 	}
 	
 	public static ArrayList<String> getWordLadderDFS(String start, String end) {
-		
 		// Returned list should be ordered start to end.  Include start and end.
 		// Return empty list if no ladder.
-		// TODO some code
 		Set<String> dict = makeDictionary();
 		ArrayList<String>ans = DFS.ComputeDFS(start, end, dict);
-		if(ans.isEmpty()){
-			System.out.println("No word ladder can be found between "+start+" and "+end );
-		}
+		if(ans.isEmpty()){}
 		else {
 			ans.add(start);
-		return ans;}
-		
+			return ans;
+		}
 		return ans;
-		
-
 	}
 	
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
-		
-		// TODO some code
 		Set<String> dict = makeDictionary();
-		
-		// TODO more code
-		
-		ArrayList<String> deleteme = new ArrayList<String>();
-		return deleteme;
+		return BFS.runBFS(start, end, dict);
 	}
     
 	public static Set<String>  makeDictionary () {
@@ -113,17 +105,14 @@ public class Main {
 	}
 	
 	public static void printLadder(ArrayList<String> ladder) {
-		if(ladder.isEmpty()){
+		if(ladder.get(0) == "ActuallyEmpty"){
+			System.out.println("no word ladder can be found between "+(ladder.get(ladder.size()-1).toLowerCase())+" and "+(ladder.get(1).toLowerCase())+".");
 			return;
 		}
-		System.out.println("");
-	
-		
+		System.out.println("a "+(ladder.size()-2)+"-rung word ladder exists between "+(ladder.get(ladder.size()-1).toLowerCase())+" and "+(ladder.get(0).toLowerCase())+".");
 		for(int i = ladder.size()-1; i >= 0; i--){
-			System.out.println(ladder.get(i));
+			System.out.println(ladder.get(i).toLowerCase());
 		}
 		
-	}
-	// TODO
-	// Other private static methods here
+	} 
 }
