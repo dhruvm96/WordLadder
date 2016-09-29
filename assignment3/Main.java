@@ -36,8 +36,8 @@ public class Main {
 		}
 		initialize();
 		ArrayList<String> input = parse(kb);
-		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
-		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
+		ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
+		//ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
 	}
 	
@@ -56,8 +56,9 @@ public class Main {
 		String word_one = keyboard.next();
 		String word_two = keyboard.next();
 		if(word_one.equals("/quit") || word_two.equals("/quit")){
-			ArrayList<String> emptyArrayList = new ArrayList<String>();
-			return emptyArrayList;
+			//ArrayList<String> emptyArrayList = new ArrayList<String>();
+			//return emptyArrayList;
+			System.exit(0);
 		}
 		ArrayList<String> input = new ArrayList<String>();
 		input.add(word_one.toUpperCase());
@@ -71,10 +72,17 @@ public class Main {
 		// Return empty list if no ladder.
 		// TODO some code
 		Set<String> dict = makeDictionary();
-		ArrayList<String>ans = 
-		// TODO more code
+		ArrayList<String>ans = DFS.ComputeDFS(start, end, dict);
+		if(ans.isEmpty()){
+			System.out.println("No word ladder can be found between "+start+" and "+end );
+		}
+		else {
+			ans.add(start);
+		return ans;}
 		
-		return null; // replace this line later with real return
+		return ans;
+		
+
 	}
 	
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
@@ -105,8 +113,13 @@ public class Main {
 	}
 	
 	public static void printLadder(ArrayList<String> ladder) {
+		if(ladder.isEmpty()){
+			return;
+		}
 		System.out.println("");
-		for(int i = 0; i < ladder.size(); i++){
+	
+		
+		for(int i = ladder.size()-1; i >= 0; i--){
 			System.out.println(ladder.get(i));
 		}
 		

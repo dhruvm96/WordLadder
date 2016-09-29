@@ -30,21 +30,23 @@ public static ArrayList <String> oneletteroff(String word,Set<String>Input){
 	
 	ArrayList <String>a1 = new ArrayList<String>();
 	for(int k =0; k<5;k++){
-		for(char b = 'a';b<='z';b++){
+		for(char b = 'A';b<='Z';b++){
 			if(wordarray[k]==b){
 				
 			}
 			else{
 			copyarray[k]=b;	
-			String checkword = copyarray.toString();
+			String checkword = String.valueOf(copyarray);
 			if(Input.contains(checkword)){
 				a1.add(checkword);
 			}
 			
 				
 			}
+			
 		}
 		copyarray[k]= wordarray[k];
+		
 		
 		
 	}
@@ -63,9 +65,12 @@ public static ArrayList<String> ComputeDFS(String start, String end, Set<String>
 		return a3;
 	}
 	if(a2.contains(newend)){
-		ArrayList<String> ans = new ArrayList<>(Arrays.asList(end));
+		ArrayList<String> ans = new ArrayList<String>(Arrays.asList(end));
+		//System.out.println("Compute DFS");
+		//Main.printLadder(ans);
 		return ans;
 	}
+	Dictionary.removeAll(a2);
 	
 	for(int count =0; count<checklength;count++){
 		
