@@ -34,18 +34,16 @@ public class Main {
 			kb = new Scanner(System.in);// default from Stdin
 			ps = System.out;			// default to Stdout
 		}
-		initialize();
+		initialize(); // Unused
 		ArrayList<String> input = parse(kb);
 		if(input.isEmpty()){System.exit(0);}
-		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
-		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
+		ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
+		//ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
 	}
 	
 	public static void initialize() {
-		// initialize your static variables or constants here.
-		// We will call this method before running our JUNIT tests.  So call it 
-		// only once at the start of main.
+		// Unused
 	}
 	
 	/**
@@ -67,19 +65,23 @@ public class Main {
 	}
 	
 	public static ArrayList<String> getWordLadderDFS(String start, String end) {
-		
 		// Returned list should be ordered start to end.  Include start and end.
 		// Return empty list if no ladder.
-		//Set<String> dict = makeDictionary();
-		
-		return null; // replace this line later with real return
+		Set<String> dict = makeDictionary();
+		ArrayList<String>ans = DFS.ComputeDFS(start, end, dict);
+		if(ans.isEmpty()){
+			System.out.println("No word ladder can be found between "+start+" and "+end );
+		}
+		else {
+			ans.add(start);
+			return ans;
+		}
+		return ans;
 	}
 	
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
-		
 		Set<String> dict = makeDictionary();
 		return BFS.runBFS(start, end, dict);
-		
 	}
     
 	public static Set<String>  makeDictionary () {
@@ -101,7 +103,7 @@ public class Main {
 	public static void printLadder(ArrayList<String> ladder) {
 		//TODO Implement this fully!
 		System.out.println("");
-		for(int i = 0; i < ladder.size(); i++){
+		for(int i = ladder.size()-1; i >= 0; i--){
 			System.out.println(ladder.get(i));
 		}
 		

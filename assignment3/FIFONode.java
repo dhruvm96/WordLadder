@@ -14,12 +14,10 @@ public class FIFONode {
 		for(int i =0;i<b.index.size();i++){
 			this.index.add(b.index.get(i));
 		}
-		//this.index = b.index;
 		this.index.add(index_of_change);
 		for(int i =0;i<b.index.size();i++){
 			this.value.add(b.value.get(i));
 		}
-		//this.value = b.value;
 		this.value.add(value_of_change);
 	}
 }
