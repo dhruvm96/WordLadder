@@ -36,6 +36,7 @@ public class Main {
 		}
 		initialize();
 		ArrayList<String> input = parse(kb);
+		if(input.isEmpty()){System.exit(0);}
 		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
 		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
@@ -69,21 +70,16 @@ public class Main {
 		
 		// Returned list should be ordered start to end.  Include start and end.
 		// Return empty list if no ladder.
-		// TODO some code
-		Set<String> dict = makeDictionary();
-		// TODO more code
+		//Set<String> dict = makeDictionary();
 		
 		return null; // replace this line later with real return
 	}
 	
     public static ArrayList<String> getWordLadderBFS(String start, String end) {
 		
-		// TODO some code
 		Set<String> dict = makeDictionary();
-		// TODO more code
+		return BFS.runBFS(start, end, dict);
 		
-		ArrayList<String> deleteme = new ArrayList<String>();
-		return deleteme;
 	}
     
 	public static Set<String>  makeDictionary () {
@@ -110,5 +106,4 @@ public class Main {
 		}
 		
 	}
-	// TODO Other private static methods here
 }

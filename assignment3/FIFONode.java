@@ -1,15 +1,25 @@
 package assignment3;
-// TODO Fix This
+import java.util.*;
 public class FIFONode {
 	public String word;
-	public int index_changed; // 7 = start node, 8 = end node
-	public char changed_to;
+	public ArrayList<Integer> index = new ArrayList<Integer>();
+	public ArrayList<Character> value = new ArrayList<Character>();
 	
-	public FIFONode(){}
-	
-	public FIFONode(String word, int index_changed, char changed_to){
+	public FIFONode(String word){ // For the first FIFONode
 		this.word = word;
-		this.index_changed = index_changed;
-		this.changed_to = changed_to;
+	} 
+	
+	public FIFONode(FIFONode b, String word, Integer index_of_change, Character value_of_change){ // For the other FIFONodes
+		this.word = word;
+		for(int i =0;i<b.index.size();i++){
+			this.index.add(b.index.get(i));
+		}
+		//this.index = b.index;
+		this.index.add(index_of_change);
+		for(int i =0;i<b.index.size();i++){
+			this.value.add(b.value.get(i));
+		}
+		//this.value = b.value;
+		this.value.add(value_of_change);
 	}
 }
