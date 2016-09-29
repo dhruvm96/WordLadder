@@ -44,6 +44,7 @@ public class DFS {
 	public static ArrayList<String> ComputeDFS(String start, String end, Set<String>Dictionary){
 		String newstart = start.toUpperCase();
 		String newend =end.toUpperCase();
+		//ensuring same word does not get visited twice
 		Dictionary.remove(newstart);
 		ArrayList<String> a2 = oneletteroff(start,Dictionary);
 		int checklength =a2.size();
@@ -55,6 +56,7 @@ public class DFS {
 			ArrayList<String> ans = new ArrayList<String>(Arrays.asList(end));
 			return ans;
 		}
+		// optimizaiton to delete all links on same level as a work to reduce number of iterations needed to traverse across the web and prevent going in longer loops than necessary
 		Dictionary.removeAll(a2);
 	
 		for(int count =0; count<checklength;count++){
