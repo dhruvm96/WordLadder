@@ -3,36 +3,15 @@ package assignment3;
 import java.util.*;
 
 public class DFS {
+	
 	/**
-	 * 
-	 * @param word is the String for which permutations are to be found 
-	 * @param Input is the set of words remaining in the dictionary
-	 * @return ArrayList comprising of all the words remaining in the dictionary which differ from word by one letter
+	 * Private helper function for ComputeDFS. Mutates a word to generate other words.
+	 * @param word is the String for which mutations are to be found.
+	 * @param Input is the set of words remaining in the dictionary.
+	 * @return ArrayList comprising of all the words remaining 
+	 * in the dictionary which differ from word by one letter.
 	 */
-
 	private static ArrayList <String> oneletteroff(String word, Set<String> Input){
-		/*int i = Input.size();
-		char [] wordarray = word.toCharArray();
-		ArrayList <String>a1 =new ArrayList<String>();
-		int complength = word.length();
-		for(int j=0;j<i;j++){
-			int noDiffChar = 0;
-			String a = Input.;
-			char[]achararray = a.toCharArray();
-			for (int k=0;k<complength;k++){
-				if(achararray[k]!=wordarray[k]){
-					noDiffChar+=1;
-				}
-			}
-			if (noDiffChar<=1){
-				a1.add(a);
-			}
-			
-		}
-		
-		return a1;
-		*/
-
 
 		char [] wordarray = word.toCharArray();
 		char[]copyarray = Arrays.copyOf(wordarray, word.length());
@@ -54,14 +33,14 @@ public class DFS {
 		}
 		return a1;
 	}
-	/**
-	 * 
-	 * @param start is the word which is to be found 
-	 * @param end is the last word which would terminate the word ladder
-	 * @param Dictionary is the set of words to be checked
-	 * @return Arraylist consisting of the words found using depth search 
-	 */
 
+	/**
+	 * Performs a Depth-First Search to generate a word ladder.
+	 * @param start is the word which is to be found. 
+	 * @param end is the last word which would terminate the word ladder.
+	 * @param Dictionary is the set of words to be checked.
+	 * @return Flipped ArrayList consisting of the words found using depth search.
+	 */
 	public static ArrayList<String> ComputeDFS(String start, String end, Set<String>Dictionary){
 		String newstart = start.toUpperCase();
 		String newend =end.toUpperCase();

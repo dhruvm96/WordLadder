@@ -4,6 +4,11 @@ import java.util.*;
 
 public class BFS{
 	
+	/**
+	 * Private helper function for runBFS. Creates the ladder to be printed.
+	 * @param endnode contains the final word and the steps required to retrace to the original word.
+	 * @return a flipped WordLadder for printLadder to print.
+	 */
 	private static ArrayList<String> GenerateLadderBFS(FIFONode endnode){
 		ArrayList<String> ladder = new ArrayList<String>();
 		ladder.add(endnode.word);
@@ -18,6 +23,12 @@ public class BFS{
 		
 	}
 	
+	/**
+	 * Private helper function runBFS. Mutates a word to generate other words.
+	 * @param parent contains the top node removed from the FIFO.
+	 * @param dictionary is the set of words in the dictionary.
+	 * @param FIFO is the queue being used to perform runBFS.
+	 */
 	private static void OneLetterOffBFS(FIFONode parent, Set<String> dictionary, LinkedList<FIFONode> FIFO){
 		char [] wordarray = parent.word.toCharArray();
 		char[]copyarray = Arrays.copyOf(wordarray, parent.word.length());
@@ -42,6 +53,13 @@ public class BFS{
 		return;
 	}
 	
+	/**
+	 * Performs a Breadth-First Search to generate a word ladder.
+	 * @param start is the starting word in the ladder.
+	 * @param end is the ending word in the ladder.
+	 * @param dictionary is the set of words in the dictionary.
+	 * @return the flipped word ladder.
+	 */
 	public static ArrayList<String> runBFS(String start, String end, Set<String> dictionary){ 
 		LinkedList<FIFONode> FIFO = new LinkedList<FIFONode>();
 	
