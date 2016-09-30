@@ -34,13 +34,11 @@ public class Main {
 			kb = new Scanner(System.in);// default from Stdin
 			ps = System.out;			// default to Stdout
 		}
-		while(true){
 		initialize(); // Unused
 		ArrayList<String> input = parse(kb);
 		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
 		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
-		}
 	}
 	
 	/**
