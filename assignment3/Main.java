@@ -34,13 +34,11 @@ public class Main {
 			kb = new Scanner(System.in);// default from Stdin
 			ps = System.out;			// default to Stdout
 		}
-		while(true){
 		initialize(); // Unused
 		ArrayList<String> input = parse(kb);
 		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
 		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
-		}
 	}
 	
 	/**
@@ -57,6 +55,9 @@ public class Main {
 	 */
 	public static ArrayList<String> parse(Scanner keyboard) {
 		String word_one = keyboard.next();
+		if(word_one.equals("/quit")){
+			System.exit(0);
+		}
 		String word_two = keyboard.next();
 		if(word_one.equals("/quit") || word_two.equals("/quit")){
 			System.exit(0);
