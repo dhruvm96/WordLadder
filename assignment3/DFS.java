@@ -1,4 +1,4 @@
-/* WORD LADDER Main.java
+/* WORD LADDER DFS.java
  * EE422C Project 3 submission by
  * Replace <...> with your actual data.
  * <Abhinav Mohan>
