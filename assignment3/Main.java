@@ -55,6 +55,9 @@ public class Main {
 	 */
 	public static ArrayList<String> parse(Scanner keyboard) {
 		String word_one = keyboard.next();
+		if(word_one.equals("/quit")){
+			System.exit(0);
+		}
 		String word_two = keyboard.next();
 		if(word_one.equals("/quit") || word_two.equals("/quit")){
 			System.exit(0);
