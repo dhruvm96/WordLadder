@@ -1,3 +1,17 @@
+/* WORD LADDER Main.java
+ * EE422C Project 3 submission by
+ * Replace <...> with your actual data.
+ * <Abhinav Mohan>
+ * <am73643>
+ * <16455>
+ * <Dhruv Mathew>
+ * <dkm989>
+ * <16455>
+ * Slip days used: <0>
+ * Git URL: https://github.com/dhruvm96/WordLadder
+ * Fall 2016
+ */
+
 package assignment3;
 
 import java.util.*;
@@ -61,6 +75,10 @@ public class BFS{
 	 * @return the flipped word ladder.
 	 */
 	public static ArrayList<String> runBFS(String start, String end, Set<String> dictionary){ 
+		if(start.equals(end)){
+			ArrayList<String> emptyArrayList = new ArrayList<String>();
+			return emptyArrayList;
+		}
 		LinkedList<FIFONode> FIFO = new LinkedList<FIFONode>();
 	
 		FIFONode startnode = new FIFONode(start);

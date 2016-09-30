@@ -1,3 +1,17 @@
+/* WORD LADDER Main.java
+ * EE422C Project 3 submission by
+ * Replace <...> with your actual data.
+ * <Abhinav Mohan>
+ * <am73643>
+ * <16455>
+ * <Dhruv Mathew>
+ * <dkm989>
+ * <16455>
+ * Slip days used: <0>
+ * Git URL: https://github.com/dhruvm96/WordLadder
+ * Fall 2016
+ */
+
 package assignment3;
 
 import java.util.*;

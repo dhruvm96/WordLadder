@@ -12,7 +12,6 @@
  * Fall 2016
  */
 
-
 package assignment3;
 import java.util.*;
 import java.io.*;
@@ -38,8 +37,8 @@ public class Main {
 		while(true){
 		initialize(); // Unused
 		ArrayList<String> input = parse(kb);
-		ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
-		//ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
+		//ArrayList<String> ladder = getWordLadderDFS(input.get(0), input.get(1));
+		ArrayList<String> ladder = getWordLadderBFS(input.get(0), input.get(1));
 		printLadder(ladder);
 		}
 	}
